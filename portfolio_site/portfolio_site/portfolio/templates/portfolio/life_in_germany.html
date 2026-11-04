@@ -1,0 +1,33 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Life in Germany | ReLevel" %}</title>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+    .container { width: min(900px, calc(100% - 32px)); margin: 48px auto 80px; }
+    .card { background: white; border: 1px solid #e2e8f0; border-radius: 20px; padding: 24px; box-shadow: 0 18px 40px rgba(15,23,42,0.04); }
+    ul { line-height: 1.9; color: #334155; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 12px; background: linear-gradient(135deg, #2563eb, #14b8a6); color: white; text-decoration: none; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h1>{% trans "Life in Germany" %}</h1>
+      <p>{% trans "Practical guidance for the first months after arrival." %}</p>
+      <ul>
+        {% for tip in tips %}
+          <li>{{ tip }}</li>
+        {% endfor %}
+      </ul>
+      <div style="margin-top: 24px;">
+        <a class="btn" href="{% url 'dashboard' %}">{% trans "Back to dashboard" %}</a>
+      </div>
+    </div>
+  </div>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

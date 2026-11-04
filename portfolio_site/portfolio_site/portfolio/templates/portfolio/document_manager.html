@@ -1,0 +1,82 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Document Manager | ReLevel" %}</title>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+    .container { width: min(1000px, calc(100% - 32px)); margin: 48px auto 80px; }
+    .panel { background: white; border: 1px solid #e2e8f0; border-radius: 22px; padding: 24px; box-shadow: 0 18px 40px rgba(15,23,42,0.04); }
+    .grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 20px; }
+    .field { width: 100%; padding: 12px 14px; margin-top: 8px; border-radius: 12px; border: 1px solid #cbd5e1; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; border-radius: 12px; background: linear-gradient(135deg, #2563eb, #14b8a6); color: white; text-decoration: none; font-weight: 700; border: none; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+    th, td { text-align: left; padding: 12px 10px; border-bottom: 1px solid #e2e8f0; }
+    a { color: #1d4ed8; }
+    @media (max-width: 760px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row" style="margin-bottom: 20px;">
+      <a class="btn" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+      <a class="btn" href="{% url 'profile_settings' %}">{% trans "Study profile" %}</a>
+    </div>
+
+    <div class="grid">
+      <div class="panel">
+        <h1>{% trans "Document manager" %}</h1>
+        <p>{% trans "Upload certificates, language proofs, transcripts, and visa documents in one place." %}</p>
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <label>{% trans "Document title" %}
+            {{ form.title }}
+          </label>
+          <label>{% trans "Category" %}
+            {{ form.category }}
+          </label>
+          <label>{% trans "Upload file" %}
+            {{ form.document }}
+          </label>
+          <label>{% trans "Notes" %}
+            {{ form.notes }}
+          </label>
+          <div style="margin-top: 18px;">
+            <button class="btn" type="submit">{% trans "Save document" %}</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>{% trans "Stored documents" %}</h2>
+        {% if documents %}
+          <table>
+            <thead>
+              <tr>
+                <th>{% trans "Title" %}</th>
+                <th>{% trans "Type" %}</th>
+                <th>{% trans "Uploaded" %}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for doc in documents %}
+                <tr>
+                  <td><a href="{{ doc.document.url }}" target="_blank">{{ doc.title }}</a></td>
+                  <td>{{ doc.get_category_display }}</td>
+                  <td>{{ doc.uploaded_at|date:"d M Y" }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+          <p>{% trans "No documents uploaded yet." %}</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

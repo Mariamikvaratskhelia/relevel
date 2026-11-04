@@ -1,0 +1,968 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ReLevel 1.0\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Language"
+msgstr "Sprache"
+
+msgid "Apply"
+msgstr "Anwenden"
+
+msgid "ReLevel | Level up your future in Germany"
+msgstr "ReLevel | Entfalte deine Zukunft in Deutschland"
+
+msgid "Level up your future in Germany."
+msgstr "Bringe deine Zukunft in Deutschland aufs nächste Level."
+
+msgid "Roadmap"
+msgstr "Lernpfad"
+
+msgid "Tools"
+msgstr "Werkzeuge"
+
+msgid "FAQ"
+msgstr "Häufige Fragen"
+
+msgid "Dashboard"
+msgstr "Übersicht"
+
+msgid "Logout"
+msgstr "Abmelden"
+
+msgid "Open dashboard"
+msgstr "Übersicht öffnen"
+
+msgid "Login"
+msgstr "Anmelden"
+
+msgid "Register"
+msgstr "Registrieren"
+
+msgid "Get started"
+msgstr "Jetzt starten"
+
+msgid "Your journey to Germany"
+msgstr "Dein Weg nach Deutschland"
+
+msgid "Your journey to studying in Germany starts here."
+msgstr "Dein Weg zum Studium in Deutschland beginnt hier."
+
+msgid "Learn German, discover universities, organize your applications and prepare for your future in Germany, all in one place."
+msgstr "Lerne Deutsch, entdecke Hochschulen, organisiere deine Bewerbungen und bereite dich an einem Ort auf deine Zukunft in Deutschland vor."
+
+msgid "Explore ReLevel"
+msgstr "ReLevel entdecken"
+
+msgid "Personal roadmap"
+msgstr "Persönlicher Lernpfad"
+
+msgid "Organize your next steps"
+msgstr "Plane deine nächsten Schritte"
+
+msgid "University finder"
+msgstr "Hochschulsuche"
+
+msgid "Explore options by preference"
+msgstr "Finde passende Möglichkeiten"
+
+msgid "Document space"
+msgstr "Dokumentenbereich"
+
+msgid "Keep application files together"
+msgstr "Bündle deine Bewerbungsunterlagen"
+
+msgid "Workspace preview"
+msgstr "Vorschau des Arbeitsbereichs"
+
+msgid "Your study journey"
+msgstr "Dein Weg zum Studium"
+
+msgid "Study profile"
+msgstr "Studienprofil"
+
+msgid "Set preferences and goals"
+msgstr "Lege Interessen und Ziele fest"
+
+msgid "Example"
+msgstr "Beispiel"
+
+msgid "Next step"
+msgstr "Nächster Schritt"
+
+msgid "Review your study roadmap"
+msgstr "Sieh dir deinen Lernpfad an"
+
+msgid "Documents"
+msgstr "Dokumente"
+
+msgid "Keep application files organized"
+msgstr "Behalte deine Bewerbungsunterlagen im Blick"
+
+msgid "How ReLevel works"
+msgstr "So funktioniert ReLevel"
+
+msgid "Example roadmap preview"
+msgstr "Beispielvorschau des Lernpfads"
+
+msgid "Set your study profile"
+msgstr "Erstelle dein Studienprofil"
+
+msgid "Save your country, education level, degree goal and preferred city."
+msgstr "Speichere dein Herkunftsland, deinen Bildungsstand, deinen Studienabschluss und deine bevorzugte Stadt."
+
+msgid "Understand your requirements"
+msgstr "Informiere dich über Voraussetzungen"
+
+msgid "Record questions and verify recognition with official services."
+msgstr "Halte offene Fragen fest und prüfe die Anerkennung bei offiziellen Stellen."
+
+msgid "Explore the guide"
+msgstr "Leitfaden ansehen"
+
+msgid "Explore study options"
+msgstr "Studienmöglichkeiten entdecken"
+
+msgid "Search the current directory and confirm details with institutions."
+msgstr "Durchsuche das Verzeichnis und bestätige Angaben bei den Hochschulen."
+
+msgid "Open finder"
+msgstr "Suche öffnen"
+
+msgid "Organize your applications"
+msgstr "Organisiere deine Bewerbungen"
+
+msgid "Keep documents together and plan your next steps."
+msgstr "Bündle deine Dokumente und plane deine nächsten Schritte."
+
+msgid "Manage documents"
+msgstr "Dokumente verwalten"
+
+msgid "Tools for your preparation"
+msgstr "Werkzeuge für deine Vorbereitung"
+
+msgid "Start with the tools available today"
+msgstr "Nutze die verfügbaren Werkzeuge"
+
+msgid "Plan your next step"
+msgstr "Plane deinen nächsten Schritt"
+
+msgid "Use your own profile"
+msgstr "Mit deinem Profil personalisieren"
+
+msgid "Study assistant"
+msgstr "Studienassistent"
+
+msgid "Guidance"
+msgstr "Orientierung"
+
+msgid "Ask a planning question"
+msgstr "Stelle eine Frage zur Planung"
+
+msgid "Get general guidance and links to official verification."
+msgstr "Erhalte allgemeine Hinweise und Links zu offiziellen Informationen."
+
+msgid "Open assistant"
+msgstr "Assistent öffnen"
+
+msgid "Student community"
+msgstr "Studierendengemeinschaft"
+
+msgid "Connect"
+msgstr "Vernetzen"
+
+msgid "Find a peer group"
+msgstr "Finde eine passende Gruppe"
+
+msgid "Browse the current community groups and student topics."
+msgstr "Entdecke Gruppen und Themen für Studierende."
+
+msgid "Explore community"
+msgstr "Gemeinschaft entdecken"
+
+msgid "Organize"
+msgstr "Organisieren"
+
+msgid "Keep files in one place"
+msgstr "Alle Dateien an einem Ort"
+
+msgid "Upload and organize personal application documents."
+msgstr "Lade deine Bewerbungsunterlagen hoch und organisiere sie."
+
+msgid "Open documents"
+msgstr "Dokumente öffnen"
+
+msgid "Life in Germany"
+msgstr "Leben in Deutschland"
+
+msgid "Guide"
+msgstr "Leitfaden"
+
+msgid "Prepare for arrival"
+msgstr "Bereite deine Ankunft vor"
+
+msgid "Review practical topics and check official sources."
+msgstr "Informiere dich über praktische Themen und prüfe offizielle Quellen."
+
+msgid "Read the guide"
+msgstr "Leitfaden lesen"
+
+msgid "Verify important information"
+msgstr "Wichtige Informationen prüfen"
+
+msgid "ReLevel helps you organize your research. Admission, certificate recognition, deadlines, tuition and visa requirements must be confirmed with the university or official authority."
+msgstr "ReLevel hilft dir, deine Recherche zu organisieren. Zulassung, Anerkennung von Zeugnissen, Fristen, Gebühren und Visabestimmungen musst du bei der Hochschule oder zuständigen Behörde bestätigen."
+
+msgid "Open practical guide"
+msgstr "Praktischen Leitfaden öffnen"
+
+msgid "Frequently asked questions"
+msgstr "Häufige Fragen"
+
+msgid "About using ReLevel"
+msgstr "Zur Nutzung von ReLevel"
+
+msgid "Does ReLevel decide if I qualify?"
+msgstr "Entscheidet ReLevel, ob ich die Voraussetzungen erfülle?"
+
+msgid "No. It helps organize your planning, but qualification and recognition decisions must come from the responsible university or official authority."
+msgstr "Nein. ReLevel hilft dir bei der Planung. Entscheidungen zu Zulassung und Anerkennung treffen die zuständige Hochschule oder offizielle Behörden."
+
+msgid "Are university listings and deadlines verified?"
+msgstr "Sind Hochschulangaben und Fristen geprüft?"
+
+msgid "Some directory entries are demonstration data. Confirm all program details, requirements and deadlines on the institution's official website."
+msgstr "Einige Einträge dienen nur als Beispieldaten. Prüfe Studiengangdetails, Voraussetzungen und Fristen auf der offiziellen Website der Hochschule."
+
+msgid "Can I update my study profile later?"
+msgstr "Kann ich mein Studienprofil später ändern?"
+
+msgid "Yes. Edit your study preferences and personal settings from the dashboard at any time."
+msgstr "Ja. Du kannst deine Studienwünsche und persönlichen Einstellungen jederzeit im Dashboard ändern."
+
+msgid "Start your ReLevel"
+msgstr "Starte deinen ReLevel"
+
+msgid "Create your profile and organize your next steps toward studying in Germany."
+msgstr "Erstelle dein Profil und plane deine nächsten Schritte zum Studium in Deutschland."
+
+msgid "Create account"
+msgstr "Konto erstellen"
+
+msgid "© 2026 ReLevel · Your journey to studying in Germany starts here."
+msgstr "© 2026 ReLevel · Dein Weg zum Studium in Deutschland beginnt hier."
+
+msgid "Build your study profile | ReLevel"
+msgstr "Erstelle dein Studienprofil | ReLevel"
+
+msgid "Skip for now"
+msgstr "Vorerst überspringen"
+
+msgid "A plan shaped around you"
+msgstr "Ein Plan, der zu dir passt"
+
+msgid "Your study journey starts here."
+msgstr "Dein Weg zum Studium beginnt hier."
+
+msgid "Share what you know so far. You can update your answers later, and this profile is not an admissions decision."
+msgstr "Teile, was du bisher weißt. Du kannst deine Angaben später ändern. Dieses Profil ist keine Zulassungsentscheidung."
+
+msgid "About you"
+msgstr "Über dich"
+
+msgid "Education"
+msgstr "Bildung"
+
+msgid "Study goals"
+msgstr "Studienziele"
+
+msgid "Review"
+msgstr "Überblick"
+
+msgid "First, the basics"
+msgstr "Zuerst die Grundlagen"
+
+msgid "How should ReLevel personalize your experience?"
+msgstr "Wie soll ReLevel deine Nutzung personalisieren?"
+
+msgid "Your name"
+msgstr "Dein Name"
+
+msgid "Interface language"
+msgstr "Anzeigesprache"
+
+msgid "Country of origin"
+msgstr "Herkunftsland"
+
+msgid "Your education so far"
+msgstr "Dein bisheriger Bildungsweg"
+
+msgid "Recognition depends on your qualification and official assessment. We won't infer eligibility from these answers."
+msgstr "Die Anerkennung hängt von deinem Abschluss und einer offiziellen Bewertung ab. Aus diesen Angaben leiten wir keine Zulassungsberechtigung ab."
+
+msgid "Current education level"
+msgstr "Aktueller Bildungsstand"
+
+msgid "Certificate recognition status"
+msgstr "Anerkennungsstatus des Zeugnisses"
+
+msgid "I have been told I may need Studienkolleg"
+msgstr "Mir wurde gesagt, dass ich möglicherweise ein Studienkolleg benötige"
+
+msgid "This records your current understanding; confirm with the relevant university or official recognition service."
+msgstr "Dies hält deinen aktuellen Kenntnisstand fest. Kläre die Frage mit der Hochschule oder einer offiziellen Anerkennungsstelle."
+
+msgid "What would you like to study?"
+msgstr "Was möchtest du studieren?"
+
+msgid "Your preferences help organize your dashboard and university search."
+msgstr "Deine Wünsche helfen dabei, dein Dashboard und die Hochschulsuche zu organisieren."
+
+msgid "Desired degree"
+msgstr "Gewünschter Abschluss"
+
+msgid "Subject"
+msgstr "Studienfach"
+
+msgid "Preferred city"
+msgstr "Bevorzugte Stadt"
+
+msgid "Planned start date"
+msgstr "Geplanter Studienbeginn"
+
+msgid "Your goal (optional)"
+msgstr "Dein Ziel (optional)"
+
+msgid "Review your profile"
+msgstr "Prüfe dein Profil"
+
+msgid "You can change any of these details later in Settings."
+msgstr "Du kannst diese Angaben später jederzeit in den Einstellungen ändern."
+
+msgid "ReLevel provides planning support, not official admission, recognition, or visa decisions. Always verify requirements with the responsible institution or authority."
+msgstr "ReLevel unterstützt dich bei der Planung, trifft aber keine offiziellen Zulassungs-, Anerkennungs- oder Visumentscheidungen. Prüfe Voraussetzungen immer bei der zuständigen Hochschule oder Behörde."
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Continue"
+msgstr "Weiter"
+
+msgid "Save my profile"
+msgstr "Profil speichern"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Degree"
+msgstr "Abschluss"
+
+msgid "City"
+msgstr "Stadt"
+
+msgid "Planned start"
+msgstr "Geplanter Beginn"
+
+msgid "Dashboard | ReLevel"
+msgstr "Übersicht | ReLevel"
+
+msgid "Main navigation"
+msgstr "Hauptnavigation"
+
+msgid "Main"
+msgstr "Hauptmenü"
+
+msgid "My roadmap"
+msgstr "Mein Lernpfad"
+
+msgid "Explore universities"
+msgstr "Hochschulen entdecken"
+
+msgid "AI assistant"
+msgstr "KI-Assistent"
+
+msgid "My studies"
+msgstr "Mein Studium"
+
+msgid "Community"
+msgstr "Gemeinschaft"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Student profile"
+msgstr "Studierendenprofil"
+
+msgid "Collapse sidebar"
+msgstr "Seitenleiste einklappen"
+
+msgid "Ask assistant"
+msgstr "Assistent fragen"
+
+msgid "Find a university"
+msgstr "Hochschule finden"
+
+msgid "Your student workspace"
+msgstr "Dein Studienbereich"
+
+msgid "Welcome back,"
+msgstr "Willkommen zurück,"
+
+msgid "Let's take one clear next step toward your studies in Germany."
+msgstr "Gehen wir den nächsten konkreten Schritt auf deinem Weg zum Studium in Deutschland."
+
+msgid "Edit study profile"
+msgstr "Studienprofil bearbeiten"
+
+msgid "View roadmap"
+msgstr "Lernpfad ansehen"
+
+msgid "Study profile overview"
+msgstr "Studienprofil im Überblick"
+
+msgid "Study profile completion"
+msgstr "Vollständigkeit des Studienprofils"
+
+msgid "Study goal"
+msgstr "Studienziel"
+
+msgid "Add your degree"
+msgstr "Abschluss hinzufügen"
+
+msgid "German learning language"
+msgstr "Sprache für Deutschlernen"
+
+msgid "Not set yet"
+msgstr "Noch nicht festgelegt"
+
+msgid "Your next steps"
+msgstr "Deine nächsten Schritte"
+
+msgid "Choose an action to move your preparation forward."
+msgstr "Wähle eine Aktion, um deine Vorbereitung voranzubringen."
+
+msgid "Open roadmap"
+msgstr "Lernpfad öffnen"
+
+msgid "Profile checklist"
+msgstr "Profil-Checkliste"
+
+msgid "of"
+msgstr "von"
+
+msgid "details added"
+msgstr "Angaben ergänzt"
+
+msgid "Continue setup"
+msgstr "Einrichtung fortsetzen"
+
+msgid "Choose preferred language"
+msgstr "Bevorzugte Sprache auswählen"
+
+msgid "Confirm country of origin"
+msgstr "Herkunftsland bestätigen"
+
+msgid "Check education level"
+msgstr "Bildungsstand angeben"
+
+msgid "Pick degree and subject"
+msgstr "Abschluss und Studienfach auswählen"
+
+msgid "Select target city and start date"
+msgstr "Zielstadt und Studienbeginn auswählen"
+
+msgid "Prepare language and visa docs"
+msgstr "Sprach- und Visadokumente vorbereiten"
+
+msgid "Added"
+msgstr "Ergänzt"
+
+msgid "To do"
+msgstr "Ausstehend"
+
+msgid "Quick actions"
+msgstr "Schnellzugriff"
+
+msgid "Jump back into your preparation."
+msgstr "Setze deine Vorbereitung fort."
+
+msgid "Search the directory"
+msgstr "Verzeichnis durchsuchen"
+
+msgid "Manage your files"
+msgstr "Dateien verwalten"
+
+msgid "Germany guide"
+msgstr "Deutschland-Leitfaden"
+
+msgid "Important dates"
+msgstr "Wichtige Termine"
+
+msgid "Dates from your profile"
+msgstr "Termine aus deinem Profil"
+
+msgid "Add your planned study start date in your profile to keep it visible here. University deadlines are not shown until verified."
+msgstr "Füge deinen geplanten Studienbeginn im Profil hinzu, damit er hier angezeigt wird. Hochschulfristen werden erst nach Prüfung angezeigt."
+
+msgid "Your focus"
+msgstr "Dein Schwerpunkt"
+
+msgid "Saved in your profile"
+msgstr "In deinem Profil gespeichert"
+
+msgid "Edit"
+msgstr "Bearbeiten"
+
+msgid "Admission, certificate recognition, and visa requirements depend on your individual situation. Verify important decisions with the relevant university or official authority. Directory entries may be demonstration data."
+msgstr "Zulassung, Zeugnisanerkennung und Visabestimmungen hängen von deiner persönlichen Situation ab. Prüfe wichtige Entscheidungen bei der zuständigen Hochschule oder Behörde. Verzeichniseinträge können Beispieldaten sein."
+
+msgid "Mobile navigation"
+msgstr "Mobile Navigation"
+
+msgid "Universities"
+msgstr "Hochschulen"
+
+msgid "Register | ReLevel"
+msgstr "Registrieren | ReLevel"
+
+msgid "Set up your account, then tell us about your plans in a short onboarding wizard."
+msgstr "Richte dein Konto ein und teile uns anschließend in wenigen Schritten deine Studienpläne mit."
+
+msgid "Show password"
+msgstr "Passwort anzeigen"
+
+msgid "Show"
+msgstr "Anzeigen"
+
+msgid "Hide"
+msgstr "Ausblenden"
+
+msgid "Hide password"
+msgstr "Passwort ausblenden"
+
+msgid "Use at least 8 characters and avoid common passwords."
+msgstr "Verwende mindestens 8 Zeichen und vermeide häufige Passwörter."
+
+msgid "Add more characters for a stronger password."
+msgstr "Verwende mehr Zeichen für ein stärkeres Passwort."
+
+msgid "Consider adding a number or symbol."
+msgstr "Ergänze eine Zahl oder ein Sonderzeichen."
+
+msgid "Good length; one more character type can help."
+msgstr "Gute Länge; eine weitere Zeichenart kann helfen."
+
+msgid "Good mix. Avoid reusing this password."
+msgstr "Gute Kombination. Verwende dieses Passwort nicht erneut."
+
+msgid "Already have an account?"
+msgstr "Du hast bereits ein Konto?"
+
+msgid "Login here"
+msgstr "Hier anmelden"
+
+msgid "First name"
+msgstr "Vorname"
+
+msgid "Last name"
+msgstr "Nachname"
+
+msgid "Email address"
+msgstr "E-Mail-Adresse"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Confirm password"
+msgstr "Passwort bestätigen"
+
+msgid "Preferred interface language"
+msgstr "Bevorzugte Anzeigesprache"
+
+msgid "Choose or enter your country"
+msgstr "Land auswählen oder eingeben"
+
+msgid "English"
+msgstr "Englisch"
+
+msgid "German"
+msgstr "Deutsch"
+
+msgid "Georgian"
+msgstr "Georgisch"
+
+msgid "Russian"
+msgstr "Russisch"
+
+msgid "Email or username"
+msgstr "E-Mail oder Benutzername"
+
+msgid "Login | ReLevel"
+msgstr "Anmelden | ReLevel"
+
+msgid "Welcome back"
+msgstr "Willkommen zurück"
+
+msgid "Continue your path to Germany."
+msgstr "Setze deinen Weg nach Deutschland fort."
+
+msgid "New here?"
+msgstr "Neu hier?"
+
+msgid "Create an account"
+msgstr "Konto erstellen"
+
+msgid "Study Path | ReLevel"
+msgstr "Lernpfad | ReLevel"
+
+msgid "Profile settings"
+msgstr "Profileinstellungen"
+
+msgid "Your ReLevel"
+msgstr "Dein ReLevel"
+
+msgid "Focus area:"
+msgstr "Schwerpunkt:"
+
+msgid "Goal:"
+msgstr "Ziel:"
+
+msgid "University Search | ReLevel"
+msgstr "Hochschulsuche | ReLevel"
+
+msgid "Search universities, Studienkollegs, and programs"
+msgstr "Suche Hochschulen, Studienkollegs und Studiengänge"
+
+msgid "Apply filters"
+msgstr "Filter anwenden"
+
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+msgid "Language:"
+msgstr "Sprache:"
+
+msgid "Admission:"
+msgstr "Zulassung:"
+
+msgid "Deadline:"
+msgstr "Bewerbungsfrist:"
+
+msgid "Tuition:"
+msgstr "Studiengebühren:"
+
+msgid "Official website"
+msgstr "Offizielle Website"
+
+msgid "No matches yet"
+msgstr "Noch keine Treffer"
+
+msgid "Try removing one or more filters or use a broader subject or city."
+msgstr "Entferne einige Filter oder wähle ein allgemeineres Fach oder eine größere Stadt."
+
+msgid "Document Manager | ReLevel"
+msgstr "Dokumentenverwaltung | ReLevel"
+
+msgid "Document manager"
+msgstr "Dokumentenverwaltung"
+
+msgid "Upload certificates, language proofs, transcripts, and visa documents in one place."
+msgstr "Lade Zeugnisse, Sprachnachweise, Notenübersichten und Visadokumente an einem Ort hoch."
+
+msgid "Document title"
+msgstr "Dokumenttitel"
+
+msgid "Category"
+msgstr "Kategorie"
+
+msgid "Upload file"
+msgstr "Datei hochladen"
+
+msgid "Notes"
+msgstr "Notizen"
+
+msgid "Save document"
+msgstr "Dokument speichern"
+
+msgid "Stored documents"
+msgstr "Gespeicherte Dokumente"
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Uploaded"
+msgstr "Hochgeladen"
+
+msgid "No documents uploaded yet."
+msgstr "Noch keine Dokumente hochgeladen."
+
+msgid "AI Study Assistant | ReLevel"
+msgstr "KI-Studienassistent | ReLevel"
+
+msgid "Ask about admission requirements, documents, visa steps, motivation letters, and German basics."
+msgstr "Frage nach Zulassungsvoraussetzungen, Dokumenten, Visaschritten, Motivationsschreiben und Deutsch-Grundlagen."
+
+msgid "Admission"
+msgstr "Zulassung"
+
+msgid "Ask: How do I apply for a master's in Germany? What is a Studienkolleg?"
+msgstr "Frage: Wie bewerbe ich mich für einen Master in Deutschland? Was ist ein Studienkolleg?"
+
+msgid "Ask ReLevel AI"
+msgstr "ReLevel-KI fragen"
+
+msgid "Back to dashboard"
+msgstr "Zurück zur Übersicht"
+
+msgid "Answer:"
+msgstr "Antwort:"
+
+msgid "Important: always confirm final admission and visa guidance with the official university and German embassy or consulate."
+msgstr "Wichtig: Bestätige verbindliche Informationen zu Zulassung und Visum immer bei der Hochschule und der deutschen Botschaft oder dem Konsulat."
+
+msgid "Student Community | ReLevel"
+msgstr "Studierendengemeinschaft | ReLevel"
+
+msgid "Connect with students from your country and with students preparing for the same study path."
+msgstr "Vernetze dich mit Studierenden aus deinem Herkunftsland und mit anderen, die sich auf ein Studium in Deutschland vorbereiten."
+
+msgid "Join discussion"
+msgstr "Diskussion beitreten"
+
+msgid "Life in Germany | ReLevel"
+msgstr "Leben in Deutschland | ReLevel"
+
+msgid "Practical guidance for the first months after arrival."
+msgstr "Praktische Hinweise für die ersten Monate nach deiner Ankunft."
+
+msgid "Profile settings | ReLevel"
+msgstr "Profileinstellungen | ReLevel"
+
+msgid "Customize your profile"
+msgstr "Passe dein Profil an"
+
+msgid "Update your name, study focus, and dashboard preferences."
+msgstr "Ändere deinen Namen, Studienschwerpunkt und Dashboard-Einstellungen."
+
+msgid "Display name"
+msgstr "Anzeigename"
+
+msgid "Bio"
+msgstr "Kurzprofil"
+
+msgid "Preferred focus"
+msgstr "Bevorzugter Schwerpunkt"
+
+msgid "Study journey"
+msgstr "Studienweg"
+
+msgid "Preferred university city"
+msgstr "Bevorzugte Hochschulstadt"
+
+msgid "Start here"
+msgstr "Hier beginnen"
+
+msgid "Check requirements with the university and official recognition services."
+msgstr "Prüfe die Voraussetzungen bei der Hochschule und offiziellen Anerkennungsstellen."
+
+msgid "Prepare your documents"
+msgstr "Bereite deine Unterlagen vor"
+
+msgid "Collect certificates, translations, and language proofs required for your applications."
+msgstr "Sammle Zeugnisse, Übersetzungen und Sprachnachweise für deine Bewerbungen."
+
+msgid "Then"
+msgstr "Danach"
+
+msgid "Plan your applications"
+msgstr "Plane deine Bewerbungen"
+
+msgid "Compare programs and keep each institution's deadlines and instructions together."
+msgstr "Vergleiche Studiengänge und behalte Fristen und Hinweise der Hochschulen im Blick."
+
+msgid "Complete your study profile"
+msgstr "Vervollständige dein Studienprofil"
+
+msgid "Add your education and study preferences to personalize your plan."
+msgstr "Ergänze deinen Bildungsstand und deine Studienwünsche, um deinen Plan anzupassen."
+
+msgid "Filter the current directory by city, subject, degree, or language."
+msgstr "Filtere das aktuelle Verzeichnis nach Stadt, Fach, Abschluss oder Sprache."
+
+msgid "Organize your documents"
+msgstr "Organisiere deine Dokumente"
+
+msgid "Upload and keep track of your application files."
+msgstr "Lade deine Bewerbungsunterlagen hoch und behalte sie im Blick."
+
+msgid "For visa guidance, check the German embassy or consulate in your country and your official university documents. Requirements depend on your nationality and individual situation."
+msgstr "Für Informationen zum Visum wende dich an die deutsche Botschaft oder das Konsulat in deinem Land und prüfe deine offiziellen Hochschulunterlagen. Die Voraussetzungen hängen von deiner Staatsangehörigkeit und Situation ab."
+
+msgid "A strong motivation letter explains your academic background, why you want to study in Germany, your chosen field, and how the program fits your goals. Keep it clear and personal."
+msgstr "Ein überzeugendes Motivationsschreiben erläutert deinen Bildungsweg, deine Gründe für ein Studium in Deutschland, dein Fach und deine Ziele. Schreibe klar und persönlich."
+
+msgid "For German grammar, focus on sentence structure, articles, cases, and word order. In subordinate clauses, the verb usually moves to the end."
+msgstr "Konzentriere dich in der deutschen Grammatik auf Satzbau, Artikel, Fälle und Wortstellung. In Nebensätzen steht das Verb normalerweise am Ende."
+
+msgid "For %(subject)s, verify the exact admission requirements on the university website, including language level, transcript recognition, and any entrance exams or foundation year needs."
+msgstr "Prüfe für %(subject)s die genauen Zulassungsvoraussetzungen auf der Hochschulwebsite, einschließlich Sprachniveau, Anerkennung der Zeugnisse und möglicher Aufnahmeprüfungen oder eines Studienkollegs."
+
+msgid "your chosen subject"
+msgstr "dein gewähltes Fach"
+
+msgid "I can help with German preparation, applications, recognition questions, and study planning. Check official university pages and embassy guidance for final admission and visa decisions."
+msgstr "Ich kann dich bei der Deutschvorbereitung, Bewerbungen, Anerkennungsfragen und Studienplanung unterstützen. Verbindliche Informationen zu Zulassung und Visum findest du bei Hochschulen und Botschaften."
+
+msgid "Support, tips, and roommate connections for students from Nigeria."
+msgstr "Unterstützung, Tipps und Kontakte zur Wohnungssuche für Studierende aus Nigeria."
+
+msgid "Discuss application questions, study options, and language preparation."
+msgstr "Tausche dich über Bewerbungen, Studienmöglichkeiten und Sprachvorbereitung aus."
+
+msgid "Share scholarship opportunities and funding ideas."
+msgstr "Teile Stipendienmöglichkeiten und Finanzierungsideen."
+
+msgid "Finding accommodation: start with student housing portals and official city listings."
+msgstr "Unterkunft finden: Beginne bei Wohnungsportalen für Studierende und offiziellen städtischen Angeboten."
+
+msgid "Opening a bank account: check the provider's requirements and prepare your identification documents."
+msgstr "Bankkonto eröffnen: Prüfe die Anforderungen des Anbieters und halte deine Ausweisdokumente bereit."
+
+msgid "Health insurance: check the requirements that apply to your student status and keep your documents ready."
+msgstr "Krankenversicherung: Prüfe die Anforderungen für deinen Studierendenstatus und halte deine Unterlagen bereit."
+
+msgid "Address registration: check the local authority's instructions after you move in."
+msgstr "Wohnsitz anmelden: Informiere dich nach dem Einzug über die Vorgaben deiner örtlichen Behörde."
+
+msgid "Public transport: check whether your university offers a semester ticket or local transit pass."
+msgstr "ÖPNV: Prüfe, ob deine Hochschule ein Semesterticket oder ein lokales Nahverkehrsticket anbietet."
+
+msgid "Welcome! Your account has been created."
+msgstr "Willkommen! Dein Konto wurde erstellt."
+
+msgid "Your study profile is ready. Your plan can be refined any time in settings."
+msgstr "Dein Studienprofil ist fertig. Du kannst deinen Plan jederzeit in den Einstellungen anpassen."
+
+msgid "Your password was updated successfully."
+msgstr "Dein Passwort wurde aktualisiert."
+
+msgid "Your profile settings were saved."
+msgstr "Deine Profileinstellungen wurden gespeichert."
+
+msgid "Your document was saved in the document manager."
+msgstr "Dein Dokument wurde in der Dokumentenverwaltung gespeichert."
+
+msgid "An account with this email already exists."
+msgstr "Für diese E-Mail-Adresse besteht bereits ein Konto."
+
+msgid "Any degree"
+msgstr "Beliebiger Abschluss"
+
+msgid "Any institution"
+msgstr "Beliebige Einrichtung"
+
+msgid "University"
+msgstr "Universität"
+
+msgid "University of Applied Sciences"
+msgstr "Hochschule für angewandte Wissenschaften"
+
+msgid "Private institution"
+msgstr "Private Hochschule"
+
+msgid "Passport"
+msgstr "Reisepass"
+
+msgid "Please review the highlighted fields."
+msgstr "Bitte überprüfe die markierten Felder."
+
+msgid "Enable email notifications"
+msgstr "E-Mail-Benachrichtigungen aktivieren"
+
+msgid "Save settings"
+msgstr "Einstellungen speichern"
+
+msgid "Security"
+msgstr "Sicherheit"
+
+msgid "Current password"
+msgstr "Aktuelles Passwort"
+
+msgid "New password"
+msgstr "Neues Passwort"
+
+msgid "Confirm new password"
+msgstr "Neues Passwort bestätigen"
+
+msgid "Update password"
+msgstr "Passwort aktualisieren"
+
+msgid "Theme"
+msgstr "Darstellung"
+
+msgid "Email notifications"
+msgstr "E-Mail-Benachrichtigungen"
+
+msgid "Preferred subject"
+msgstr "Bevorzugtes Studienfach"
+
+msgid "Certificate"
+msgstr "Zeugnis"
+
+msgid "Language proof"
+msgstr "Sprachnachweis"
+
+msgid "Transcript"
+msgstr "Notenübersicht"
+
+msgid "Motivation letter"
+msgstr "Motivationsschreiben"
+
+msgid "Visa"
+msgstr "Visum"
+
+msgid "Other"
+msgstr "Sonstiges"
+
+msgid "Bachelor's"
+msgstr "Bachelor"
+
+msgid "Master's"
+msgstr "Master"
+
+msgid "Bachelor's degree"
+msgstr "Bachelorabschluss"
+
+msgid "Master's degree"
+msgstr "Masterabschluss"
+
+msgid "High school diploma"
+msgstr "Schulabschluss"
+
+msgid "Light"
+msgstr "Hell"
+
+msgid "Dark"
+msgstr "Dunkel"
+
+msgid "Midnight"
+msgstr "Mitternacht"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "Not sure"
+msgstr "Nicht sicher"

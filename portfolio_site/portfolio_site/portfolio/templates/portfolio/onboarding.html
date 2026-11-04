@@ -1,0 +1,173 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Build your study profile | ReLevel" %}</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f8f6;
+      --surface: #fff;
+      --ink: #172522;
+      --muted: #64736e;
+      --line: #dce5df;
+      --blue: #2563eb;
+      --teal: #0e9885;
+      --soft: #edf5f2;
+      --error: #b42318;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Manrope", "Segoe UI", sans-serif; }
+    a { color: inherit; text-decoration: none; }
+    .page { width: min(940px, calc(100% - 32px)); margin: 28px auto 60px; }
+    .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 36px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 1.05rem; font-weight: 800; }
+    .brand-mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: var(--blue); color: white; }
+    .quiet-link { color: var(--muted); font-size: .9rem; font-weight: 700; }
+    .layout { display: grid; grid-template-columns: minmax(210px, .7fr) minmax(0, 1.5fr); gap: 28px; align-items: start; }
+    .intro { padding: 20px 4px; }
+    .eyebrow { color: var(--teal); font-weight: 800; font-size: .76rem; text-transform: uppercase; letter-spacing: .08em; }
+    h1 { margin: 12px 0; font-size: clamp(2rem, 5vw, 2.8rem); line-height: 1.08; }
+    .intro p, .hint { color: var(--muted); line-height: 1.65; }
+    .steps { display: grid; gap: 10px; margin-top: 28px; }
+    .step-indicator { display: flex; gap: 12px; align-items: center; color: var(--muted); font-size: .88rem; }
+    .step-indicator b { display: grid; place-items: center; width: 28px; height: 28px; border: 1px solid var(--line); border-radius: 50%; background: white; }
+    .step-indicator[aria-current="step"] { color: var(--ink); font-weight: 800; }
+    .step-indicator[aria-current="step"] b { background: var(--teal); border-color: var(--teal); color: white; }
+    .form-panel { padding: clamp(22px, 5vw, 38px); border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+    .form-panel h2 { margin: 0 0 8px; font-size: 1.35rem; }
+    .fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin: 26px 0; }
+    .field-wrap { min-width: 0; }
+    .field-wrap.full { grid-column: 1 / -1; }
+    label { display: block; margin-bottom: 7px; font-size: .88rem; font-weight: 750; }
+    .field { width: 100%; min-height: 46px; padding: 11px 12px; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--ink); font: inherit; }
+    textarea.field { min-height: 96px; }
+    .check-row { display: flex; gap: 10px; align-items: center; padding-top: 10px; color: var(--muted); }
+    .error { color: var(--error); font-size: .82rem; margin-top: 5px; }
+    .form-error { padding: 12px; border-radius: 8px; background: #fff0ef; color: var(--error); }
+    .review { display: grid; gap: 10px; margin: 22px 0; }
+    .review-row { display: flex; justify-content: space-between; gap: 18px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .review-row span:first-child { color: var(--muted); }
+    .actions { display: flex; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid var(--line); }
+    button, .button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: 0 17px; border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--ink); font: inherit; font-weight: 800; cursor: pointer; }
+    button.primary { border-color: var(--blue); background: var(--blue); color: white; }
+    button:focus-visible, a:focus-visible, .field:focus-visible { outline: 3px solid #78b9ff; outline-offset: 2px; }
+    @media (max-width: 700px) { .page { margin-top: 18px; } .layout { grid-template-columns: 1fr; gap: 12px; } .intro { padding: 8px 0; } .steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 6px; margin: 20px 0; } .step-indicator { display: grid; justify-items: center; gap: 5px; text-align: center; font-size: .68rem; } .fields { grid-template-columns: 1fr; } .field-wrap.full { grid-column: auto; } }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="top">
+      <a class="brand" href="{% url 'home' %}"><span class="brand-mark">R</span> ReLevel</a>
+      <a class="quiet-link" href="{% url 'dashboard' %}">{% trans "Skip for now" %}</a>
+    </header>
+    <div class="layout">
+      <section class="intro" aria-labelledby="page-title">
+        <span class="eyebrow">{% trans "A plan shaped around you" %}</span>
+        <h1 id="page-title">{% trans "Your study journey starts here." %}</h1>
+        <p>{% trans "Share what you know so far. You can update your answers later, and this profile is not an admissions decision." %}</p>
+        <nav class="steps" aria-label="Onboarding progress">
+          <div class="step-indicator" data-indicator="0"><b>1</b><span>{% trans "About you" %}</span></div>
+          <div class="step-indicator" data-indicator="1"><b>2</b><span>{% trans "Education" %}</span></div>
+          <div class="step-indicator" data-indicator="2"><b>3</b><span>{% trans "Study goals" %}</span></div>
+          <div class="step-indicator" data-indicator="3"><b>4</b><span>{% trans "Review" %}</span></div>
+        </nav>
+      </section>
+      <section class="form-panel" aria-live="polite">
+        <form method="post" id="onboarding-form">
+          {% csrf_token %}
+          {% if form.errors %}<div class="form-error" role="alert">Please review the highlighted fields.</div>{% endif %}
+          <section class="wizard-step" data-step="0">
+            <h2>{% trans "First, the basics" %}</h2><p class="hint">{% trans "How should ReLevel personalize your experience?" %}</p>
+            <div class="fields">
+              <div class="field-wrap"><label for="id_display_name">{% trans "Your name" %}</label>{{ form.display_name }}{{ form.display_name.errors }}</div>
+              <div class="field-wrap"><label for="id_preferred_language">{% trans "Interface language" %}</label>{{ form.preferred_language }}{{ form.preferred_language.errors }}</div>
+              <div class="field-wrap full"><label for="id_country_of_origin">{% trans "Country of origin" %}</label>{{ form.country_of_origin }}{{ form.country_of_origin.errors }}</div>
+            </div>
+          </section>
+          <section class="wizard-step" data-step="1">
+            <h2>{% trans "Your education so far" %}</h2><p class="hint">{% trans "Recognition depends on your qualification and official assessment. We won't infer eligibility from these answers." %}</p>
+            <div class="fields">
+              <div class="field-wrap"><label for="id_education_level">{% trans "Current education level" %}</label>{{ form.education_level }}{{ form.education_level.errors }}</div>
+              <div class="field-wrap"><label for="id_certificate_recognition">{% trans "Certificate recognition status" %}</label>{{ form.certificate_recognition }}{{ form.certificate_recognition.errors }}</div>
+              <div class="field-wrap full"><label class="check-row" for="id_studienkolleg_required">{{ form.studienkolleg_required }} {% trans "I have been told I may need Studienkolleg" %}</label><p class="hint">{% trans "This records your current understanding; confirm with the relevant university or official recognition service." %}</p></div>
+            </div>
+          </section>
+          <section class="wizard-step" data-step="2">
+            <h2>{% trans "What would you like to study?" %}</h2><p class="hint">{% trans "Your preferences help organize your dashboard and university search." %}</p>
+            <div class="fields">
+              <div class="field-wrap"><label for="id_desired_degree">{% trans "Desired degree" %}</label>{{ form.desired_degree }}{{ form.desired_degree.errors }}</div>
+              <div class="field-wrap"><label for="id_preferred_subject">{% trans "Subject" %}</label>{{ form.preferred_subject }}{{ form.preferred_subject.errors }}</div>
+              <div class="field-wrap"><label for="id_university_city">{% trans "Preferred city" %}</label>{{ form.university_city }}{{ form.university_city.errors }}</div>
+              <div class="field-wrap"><label for="id_planned_start_date">{% trans "Planned start date" %}</label>{{ form.planned_start_date }}{{ form.planned_start_date.errors }}</div>
+              <div class="field-wrap full"><label for="id_study_goal">{% trans "Your goal (optional)" %}</label>{{ form.study_goal }}{{ form.study_goal.errors }}</div>
+            </div>
+          </section>
+          <section class="wizard-step" data-step="3">
+            <h2>{% trans "Review your profile" %}</h2><p class="hint">{% trans "You can change any of these details later in Settings." %}</p>
+            <div class="review" id="onboarding-review"></div>
+            <p class="hint">{% trans "ReLevel provides planning support, not official admission, recognition, or visa decisions. Always verify requirements with the responsible institution or authority." %}</p>
+          </section>
+          <div class="actions">
+            <button type="button" id="back-button">{% trans "Back" %}</button>
+            <button type="button" class="primary" id="next-button">{% trans "Continue" %}</button>
+            <button type="submit" class="primary" id="save-button">{% trans "Save my profile" %}</button>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+  <script>
+    (() => {
+      const form = document.getElementById("onboarding-form");
+      const steps = [...form.querySelectorAll(".wizard-step")];
+      const indicators = [...document.querySelectorAll("[data-indicator]")];
+      const back = document.getElementById("back-button");
+      const next = document.getElementById("next-button");
+      const save = document.getElementById("save-button");
+      const review = document.getElementById("onboarding-review");
+      const fields = [
+        ["{% trans 'Name' %}", "display_name"], ["{% trans 'Language' %}", "preferred_language"], ["{% trans 'Country' %}", "country_of_origin"],
+        ["{% trans 'Education' %}", "education_level"], ["{% trans 'Degree' %}", "desired_degree"], ["{% trans 'Subject' %}", "preferred_subject"],
+        ["{% trans 'City' %}", "university_city"], ["{% trans 'Planned start' %}", "planned_start_date"]
+      ];
+      let current = 0;
+      const value = (name) => {
+        const field = form.elements.namedItem(name);
+        if (!field) return "Not set";
+        if (field.type === "checkbox") return field.checked ? "Yes" : "No";
+        return field.value.trim() || "Not set";
+      };
+      function showStep(index) {
+        current = index;
+        steps.forEach((step, stepIndex) => { step.hidden = stepIndex !== current; });
+        indicators.forEach((indicator, stepIndex) => {
+          if (stepIndex === current) indicator.setAttribute("aria-current", "step");
+          else indicator.removeAttribute("aria-current");
+        });
+        back.hidden = current === 0;
+        next.hidden = current === steps.length - 1;
+        save.hidden = current !== steps.length - 1;
+        if (current === steps.length - 1) {
+          review.replaceChildren(...fields.map(([label, name]) => {
+            const row = document.createElement("div");
+            row.className = "review-row";
+            const key = document.createElement("span");
+            const answer = document.createElement("strong");
+            key.textContent = label;
+            answer.textContent = value(name);
+            row.append(key, answer);
+            return row;
+          }));
+        }
+      }
+      back.addEventListener("click", () => showStep(Math.max(0, current - 1)));
+      next.addEventListener("click", () => showStep(Math.min(steps.length - 1, current + 1)));
+      showStep(0);
+    })();
+  </script>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

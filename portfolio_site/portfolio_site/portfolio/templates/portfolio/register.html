@@ -1,0 +1,128 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Register | ReLevel" %}</title>
+  <style>
+    :root {
+      --bg: #f6f8f6;
+      --panel: #ffffff;
+      --primary: #2563eb;
+      --secondary: #0e9885;
+      --text: #172522;
+      --muted: #65746f;
+      --line: #dce5df;
+      --danger: #dc2626;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Manrope", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+    .wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(500px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 12px 30px rgba(27, 55, 45, .05);
+    }
+    h1 { margin: 0 0 8px; font-size: 2rem; letter-spacing: -0.04em; }
+    p { color: var(--muted); margin-top: 0; }
+    form { display: grid; gap: 16px; }
+    label { font-size: 0.9rem; font-weight: 700; }
+    input, select {
+      width: 100%;
+      min-height: 46px;
+      padding: 11px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      font: inherit;
+      background: #fff;
+    }
+    .password-wrap { display: flex; gap: 8px; }
+    .password-wrap input { min-width: 0; }
+    .password-toggle { border: 1px solid var(--line); border-radius: 8px; background: white; color: var(--text); font: inherit; font-size: .82rem; font-weight: 750; cursor: pointer; }
+    .strength { height: 5px; overflow: hidden; margin-top: 8px; border-radius: 8px; background: #e7ece9; }
+    .strength span { display: block; width: 0; height: 100%; background: var(--secondary); transition: width .2s ease; }
+    .helper { display: block; margin-top: 6px; color: var(--muted); font-size: .78rem; }
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      background: var(--primary);
+      color: white;
+    }
+    .links { margin-top: 16px; color: var(--muted); font-size: 0.92rem; }
+    .links a { color: var(--primary); text-decoration: none; }
+    ul.errorlist { list-style: none; padding: 0; margin: 0; color: var(--danger); font-size: 0.88rem; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <h1>{% trans "Create account" %}</h1>
+      <p>{% trans "Set up your account, then tell us about your plans in a short onboarding wizard." %}</p>
+
+      <form method="post">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+          <div>
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {% if field.name == "password1" or field.name == "password2" %}
+              <div class="password-wrap">{{ field }}<button class="password-toggle" type="button" data-password-toggle="{{ field.id_for_label }}" aria-label="{% trans 'Show password' %}">{% trans "Show" %}</button></div>
+              {% if field.name == "password1" %}<div class="strength" aria-hidden="true"><span id="password-strength"></span></div><small class="helper" id="password-help">{% trans "Use at least 8 characters and avoid common passwords." %}</small>{% endif %}
+            {% else %}
+              {{ field }}
+            {% endif %}
+            {% if field.errors %}
+              <ul class="errorlist">{% for error in field.errors %}<li>{{ error }}</li>{% endfor %}</ul>
+            {% endif %}
+          </div>
+        {% endfor %}
+        <button class="btn" type="submit">{% trans "Create account" %}</button>
+      </form>
+
+      <div class="links">
+        {% trans "Already have an account?" %} <a href="{% url 'login' %}">{% trans "Login here" %}</a>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.querySelectorAll("[data-password-toggle]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const input = document.getElementById(button.dataset.passwordToggle);
+        const showPassword = input.type === "password";
+        input.type = showPassword ? "text" : "password";
+        button.textContent = showPassword ? "{% trans 'Hide' %}" : "{% trans 'Show' %}";
+        button.setAttribute("aria-label", showPassword ? "{% trans 'Hide password' %}" : "{% trans 'Show password' %}");
+      });
+    });
+    const password = document.getElementById("id_password1");
+    const strength = document.getElementById("password-strength");
+    password?.addEventListener("input", () => {
+      const score = [password.value.length >= 8, /[A-Z]/.test(password.value), /[0-9]/.test(password.value), /[^A-Za-z0-9]/.test(password.value)].filter(Boolean).length;
+      strength.style.width = `${score * 25}%`;
+      document.getElementById("password-help").textContent = ["{% trans 'Use at least 8 characters and avoid common passwords.' %}", "{% trans 'Add more characters for a stronger password.' %}", "{% trans 'Consider adding a number or symbol.' %}", "{% trans 'Good length; one more character type can help.' %}", "{% trans 'Good mix. Avoid reusing this password.' %}"][score];
+    });
+  </script>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

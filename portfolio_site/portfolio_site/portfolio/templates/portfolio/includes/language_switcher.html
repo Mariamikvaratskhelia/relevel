@@ -1,0 +1,19 @@
+{% load i18n %}
+<style>
+  .language-switcher { position: fixed; right: 16px; bottom: 16px; z-index: 20; display: flex; align-items: center; gap: 7px; padding: 8px; border: 1px solid #dce5df; border-radius: 9px; background: #fff; box-shadow: 0 8px 24px rgba(20, 40, 35, .12); color: #172522; font: 700 12px/1.2 "Segoe UI", sans-serif; }
+  .language-switcher select, .language-switcher button { min-height: 34px; border: 1px solid #dce5df; border-radius: 6px; background: #fff; color: inherit; font: inherit; }
+  .language-switcher select { padding: 0 7px; }
+  .language-switcher button { padding: 0 9px; cursor: pointer; }
+  .language-switcher :focus-visible { outline: 3px solid #78b9ff; outline-offset: 2px; }
+  @media (max-width: 650px) { .language-switcher { right: 10px; bottom: 76px; } }
+</style>
+<form class="language-switcher" action="{% url 'set_language' %}" method="post">
+  {% csrf_token %}
+  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+  <label for="site-language">{% trans "Language" %}</label>
+  <select id="site-language" name="language">
+    <option value="en"{% if request.LANGUAGE_CODE|slice:":2" == "en" %} selected{% endif %}>English</option>
+    <option value="de"{% if request.LANGUAGE_CODE|slice:":2" == "de" %} selected{% endif %}>Deutsch</option>
+  </select>
+  <button type="submit">{% trans "Apply" %}</button>
+</form>

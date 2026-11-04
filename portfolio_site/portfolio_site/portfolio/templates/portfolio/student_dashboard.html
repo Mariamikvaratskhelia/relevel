@@ -1,0 +1,246 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Dashboard | ReLevel" %}</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f5f7f5;
+      --surface: #fff;
+      --surface-soft: #eef5f2;
+      --ink: #172522;
+      --muted: #65746f;
+      --line: #e0e7e3;
+      --blue: #2563eb;
+      --teal: #0e9885;
+      --success: #16834a;
+      --shadow: 0 12px 30px rgba(27, 55, 45, .045);
+    }
+    body.dark, body.midnight {
+      color-scheme: dark;
+      --bg: #111a18;
+      --surface: #1a2522;
+      --surface-soft: #22342f;
+      --ink: #edf5f1;
+      --muted: #afbeb8;
+      --line: #34443e;
+      --blue: #79a8ff;
+      --teal: #4fd1bd;
+      --success: #5dde91;
+      --shadow: 0 12px 30px rgba(0, 0, 0, .13);
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: "Manrope", "Segoe UI", sans-serif; font-size: 15px; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .app { min-height: 100vh; }
+    .sidebar { position: fixed; inset: 0 auto 0 0; z-index: 4; display: flex; width: 248px; flex-direction: column; padding: 22px 14px; border-right: 1px solid var(--line); background: var(--surface); transition: width .18s ease; }
+    .brand { display: flex; align-items: center; gap: 10px; min-height: 40px; padding: 0 10px; font-size: 1.03rem; font-weight: 850; }
+    .brand-mark { display: grid; width: 32px; height: 32px; place-items: center; border-radius: 9px; background: var(--blue); color: #fff; font-size: .88rem; }
+    .nav-group { margin-top: 30px; }
+    .nav-label { padding: 0 11px 9px; color: var(--muted); font-size: .68rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    .nav-link { display: flex; align-items: center; gap: 12px; min-height: 42px; margin: 2px 0; padding: 0 11px; border-radius: 8px; color: var(--muted); font-weight: 700; }
+    .nav-link:hover, .nav-link[aria-current="page"] { background: var(--surface-soft); color: var(--ink); }
+    .nav-link[aria-current="page"] { box-shadow: inset 3px 0 var(--teal); }
+    .nav-glyph { width: 20px; color: var(--teal); text-align: center; font-weight: 900; }
+    .sidebar-footer { margin-top: auto; padding: 13px 10px 0; border-top: 1px solid var(--line); }
+    .user-chip { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .avatar { display: grid; width: 34px; height: 34px; flex: 0 0 34px; place-items: center; border-radius: 50%; background: #d7eee7; color: #116657; font-weight: 850; }
+    .user-meta { min-width: 0; }
+    .user-meta strong, .user-meta span { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .user-meta span { margin-top: 2px; color: var(--muted); font-size: .76rem; }
+    .workspace { min-height: 100vh; margin-left: 248px; transition: margin-left .18s ease; }
+    .topbar { position: sticky; top: 0; z-index: 3; display: flex; min-height: 68px; align-items: center; justify-content: space-between; gap: 16px; padding: 0 34px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(12px); }
+    .breadcrumbs { color: var(--muted); font-size: .86rem; }
+    .breadcrumbs strong { color: var(--ink); }
+    .top-actions { display: flex; align-items: center; gap: 10px; }
+    .text-link, .button { display: inline-flex; min-height: 39px; align-items: center; justify-content: center; padding: 0 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); font-size: .83rem; font-weight: 800; }
+    .button.primary { border-color: var(--blue); background: var(--blue); color: white; }
+    .icon-button { min-width: 39px; cursor: pointer; }
+    .content { width: min(1320px, 100%); margin: 0 auto; padding: 34px; }
+    .welcome { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 26px; }
+    .eyebrow { color: var(--teal); font-size: .74rem; font-weight: 850; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 8px 0 7px; font-size: clamp(1.8rem, 3vw, 2.45rem); letter-spacing: 0; line-height: 1.15; }
+    .subhead { margin: 0; color: var(--muted); line-height: 1.55; }
+    .welcome-actions { display: flex; gap: 9px; flex-wrap: wrap; }
+    .flash { margin: 0 0 18px; padding: 12px 15px; border: 1px solid #b7dfcc; border-radius: 8px; background: #edf8f1; color: #17653a; font-weight: 750; }
+    .profile-strip { display: grid; grid-template-columns: minmax(0, 1.5fr) repeat(2, minmax(140px, .7fr)); gap: 1px; overflow: hidden; margin-bottom: 22px; border: 1px solid var(--line); border-radius: 11px; background: var(--line); box-shadow: var(--shadow); }
+    .strip-cell { min-width: 0; padding: 18px 20px; background: var(--surface); }
+    .strip-label { display: block; margin-bottom: 8px; color: var(--muted); font-size: .78rem; font-weight: 700; }
+    .strip-value { font-weight: 850; overflow-wrap: anywhere; }
+    .progress-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .progress-track { height: 7px; overflow: hidden; margin-top: 11px; border-radius: 8px; background: var(--surface-soft); }
+    .progress-fill { height: 100%; border-radius: inherit; background: var(--teal); }
+    .columns { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(270px, .8fr); gap: 20px; align-items: start; }
+    .stack { display: grid; gap: 20px; min-width: 0; }
+    .panel { min-width: 0; padding: 21px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: var(--shadow); }
+    .panel-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 17px; }
+    h2 { margin: 0; font-size: 1.04rem; letter-spacing: 0; }
+    .panel-heading p { margin: 5px 0 0; color: var(--muted); font-size: .83rem; }
+    .subtle-link { color: var(--blue); font-size: .82rem; font-weight: 800; white-space: nowrap; }
+    .steps-list, .check-list, .reminder-list { display: grid; }
+    .step-row { display: grid; grid-template-columns: 31px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 13px 0; border-top: 1px solid var(--line); }
+    .step-number { display: grid; width: 29px; height: 29px; place-items: center; border-radius: 8px; background: var(--surface-soft); color: var(--teal); font-size: .8rem; font-weight: 900; }
+    .step-copy strong { display: block; font-size: .9rem; }
+    .step-copy span { display: block; margin-top: 4px; color: var(--muted); font-size: .79rem; line-height: 1.45; }
+    .small-link { color: var(--blue); font-size: .8rem; font-weight: 850; white-space: nowrap; }
+    .check-row, .reminder-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-top: 1px solid var(--line); font-size: .86rem; }
+    .status { flex: 0 0 auto; color: var(--muted); font-size: .75rem; font-weight: 800; }
+    .status.done { color: var(--success); }
+    .empty { padding: 15px; border-radius: 8px; background: var(--surface-soft); color: var(--muted); font-size: .85rem; line-height: 1.5; }
+    .quick-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; }
+    .quick-link { display: grid; min-height: 76px; align-content: center; gap: 5px; padding: 13px; border: 1px solid var(--line); border-radius: 8px; font-size: .83rem; font-weight: 850; }
+    .quick-link:hover { border-color: var(--teal); background: var(--surface-soft); }
+    .quick-link span { color: var(--muted); font-size: .74rem; font-weight: 600; }
+    .notice { margin-top: 20px; padding: 14px 16px; border-left: 3px solid var(--teal); background: var(--surface-soft); color: var(--muted); font-size: .82rem; line-height: 1.55; }
+    .mobile-nav { display: none; }
+    body.sidebar-collapsed .sidebar { width: 76px; }
+    body.sidebar-collapsed .workspace { margin-left: 76px; }
+    body.sidebar-collapsed .brand-name, body.sidebar-collapsed .nav-label, body.sidebar-collapsed .nav-text, body.sidebar-collapsed .user-meta { display: none; }
+    body.sidebar-collapsed .nav-link { justify-content: center; padding: 0; }
+    body.sidebar-collapsed .brand { justify-content: center; padding: 0; }
+    body.sidebar-collapsed .sidebar-footer { padding-inline: 5px; }
+    @media (max-width: 900px) { .sidebar { width: 218px; } .workspace { margin-left: 218px; } .topbar { padding: 0 22px; } .content { padding: 26px 22px 92px; } .columns { grid-template-columns: 1fr; } }
+    @media (max-width: 650px) {
+      .sidebar { display: none; }
+      .workspace, body.sidebar-collapsed .workspace { margin-left: 0; }
+      .topbar { min-height: 58px; padding: 0 15px; }
+      .top-actions .text-link:first-child, .collapse-control { display: none; }
+      .content { padding: 24px 15px 100px; }
+      .welcome { display: block; }
+      .welcome-actions { margin-top: 17px; }
+      .profile-strip { grid-template-columns: 1fr 1fr; }
+      .strip-cell:first-child { grid-column: 1 / -1; }
+      .panel { padding: 17px; }
+      .mobile-nav { position: fixed; inset: auto 0 0; z-index: 8; display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; padding: 8px 5px calc(8px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--surface); }
+      .mobile-nav a { display: grid; min-height: 46px; place-items: center; border-radius: 7px; color: var(--muted); font-size: .69rem; font-weight: 800; text-align: center; }
+      .mobile-nav a[aria-current="page"] { background: var(--surface-soft); color: var(--teal); }
+      .step-row { grid-template-columns: 28px minmax(0, 1fr); }
+      .step-row .small-link { grid-column: 2; }
+    }
+  </style>
+</head>
+<body class="{{ profile.theme|default:'light' }}">
+  <div class="app">
+    <aside class="sidebar" aria-label="{% trans 'Main navigation' %}">
+      <a class="brand" href="{% url 'dashboard' %}"><span class="brand-mark">R</span><span class="brand-name">ReLevel</span></a>
+      <nav>
+        <div class="nav-group">
+          <div class="nav-label">{% trans "Main" %}</div>
+          <a class="nav-link" aria-current="page" href="{% url 'dashboard' %}" title="{% trans 'Dashboard' %}"><span class="nav-glyph">D</span><span class="nav-text">{% trans "Dashboard" %}</span></a>
+          <a class="nav-link" href="{% url 'study_path' %}" title="{% trans 'My roadmap' %}"><span class="nav-glyph">R</span><span class="nav-text">{% trans "My roadmap" %}</span></a>
+          <a class="nav-link" href="{% url 'university_search' %}" title="{% trans 'Explore universities' %}"><span class="nav-glyph">U</span><span class="nav-text">{% trans "Explore universities" %}</span></a>
+          <a class="nav-link" href="{% url 'ai_assistant' %}" title="{% trans 'AI assistant' %}"><span class="nav-glyph">A</span><span class="nav-text">{% trans "AI assistant" %}</span></a>
+        </div>
+        <div class="nav-group">
+          <div class="nav-label">{% trans "My studies" %}</div>
+          <a class="nav-link" href="{% url 'document_manager' %}" title="{% trans 'Documents' %}"><span class="nav-glyph">F</span><span class="nav-text">{% trans "Documents" %}</span></a>
+          <a class="nav-link" href="{% url 'student_community' %}" title="{% trans 'Community' %}"><span class="nav-glyph">C</span><span class="nav-text">{% trans "Community" %}</span></a>
+          <a class="nav-link" href="{% url 'life_in_germany' %}" title="{% trans 'Life in Germany' %}"><span class="nav-glyph">G</span><span class="nav-text">{% trans "Life in Germany" %}</span></a>
+        </div>
+      </nav>
+      <div class="sidebar-footer">
+        <a class="nav-link" href="{% url 'profile_settings' %}" title="{% trans 'Settings' %}"><span class="nav-glyph">S</span><span class="nav-text">{% trans "Settings" %}</span></a>
+        <div class="user-chip"><span class="avatar">{{ display_name|first|upper }}</span><div class="user-meta"><strong>{{ display_name }}</strong><span>{% trans "Student profile" %}</span></div></div>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <div class="breadcrumbs">ReLevel <span aria-hidden="true">/</span> <strong>{% trans "Dashboard" %}</strong></div>
+        <div class="top-actions">
+          <button class="text-link icon-button collapse-control" type="button" id="sidebar-toggle" aria-label="{% trans 'Collapse sidebar' %}" title="{% trans 'Collapse sidebar' %}">⇤</button>
+          <a class="text-link" href="{% url 'ai_assistant' %}">{% trans "Ask assistant" %}</a>
+          <a class="button primary" href="{% url 'university_search' %}">{% trans "Find a university" %}</a>
+        </div>
+      </header>
+      <main class="content">
+        {% if welcome_message %}<div class="flash" role="status">{{ welcome_message }}</div>{% endif %}
+        <section class="welcome">
+          <div>
+            <span class="eyebrow">{% trans "Your student workspace" %}</span>
+            <h1>{% trans "Welcome back," %} {{ display_name }}.</h1>
+            <p class="subhead">{% if profile.study_goal %}{{ profile.study_goal }}{% else %}{% trans "Let's take one clear next step toward your studies in Germany." %}{% endif %}</p>
+          </div>
+          <div class="welcome-actions">
+            <a class="button" href="{% url 'onboarding' %}">{% trans "Edit study profile" %}</a>
+            <a class="button primary" href="{% url 'study_path' %}">{% trans "View roadmap" %}</a>
+          </div>
+        </section>
+
+        <section class="profile-strip" aria-label="{% trans 'Study profile overview' %}">
+          <div class="strip-cell">
+            <div class="progress-head"><span class="strip-label">{% trans "Study profile completion" %}</span><strong>{{ profile_completion }}%</strong></div>
+            <div class="progress-track" role="progressbar" aria-label="{% trans 'Study profile completion' %}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{ profile_completion }}"><div class="progress-fill" style="width: {{ profile_completion }}%"></div></div>
+          </div>
+          <div class="strip-cell"><span class="strip-label">{% trans "Study goal" %}</span><span class="strip-value">{% if profile.desired_degree %}{{ profile.desired_degree }}{% else %}{% trans "Add your degree" %}{% endif %}{% if profile.preferred_subject %} · {{ profile.preferred_subject }}{% endif %}</span></div>
+          <div class="strip-cell"><span class="strip-label">{% trans "German learning language" %}</span><span class="strip-value">{% if profile.preferred_language %}{{ profile.preferred_language }}{% else %}{% trans "Not set yet" %}{% endif %}</span></div>
+        </section>
+
+        <div class="columns">
+          <div class="stack">
+            <section class="panel">
+              <div class="panel-heading"><div><h2>{% trans "Your next steps" %}</h2><p>{% trans "Choose an action to move your preparation forward." %}</p></div><a class="subtle-link" href="{% url 'study_path' %}">{% trans "Open roadmap" %}</a></div>
+              <div class="steps-list">
+                {% for step in next_steps %}
+                  <div class="step-row"><span class="step-number">{{ forloop.counter }}</span><div class="step-copy"><strong>{{ step.title }}</strong><span>{{ step.detail }}</span></div><a class="small-link" href="{% url step.url %}">Open</a></div>
+                {% endfor %}
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading"><div><h2>{% trans "Profile checklist" %}</h2><p>{{ completed_steps }} {% trans "of" %} {{ checklist|length }} {% trans "details added" %}</p></div><a class="subtle-link" href="{% url 'onboarding' %}">{% trans "Continue setup" %}</a></div>
+              <div class="check-list">
+                {% for item in checklist %}
+                  <div class="check-row"><span>{% trans item.label %}</span><span class="status {% if item.done %}done{% endif %}">{% if item.done %}{% trans "Added" %}{% else %}{% trans "To do" %}{% endif %}</span></div>
+                {% endfor %}
+              </div>
+            </section>
+          </div>
+          <aside class="stack" aria-label="Study tools">
+            <section class="panel">
+              <div class="panel-heading"><div><h2>{% trans "Quick actions" %}</h2><p>{% trans "Jump back into your preparation." %}</p></div></div>
+              <div class="quick-grid">
+                <a class="quick-link" href="{% url 'university_search' %}">{% trans "University finder" %}<span>{% trans "Search the directory" %}</span></a>
+                <a class="quick-link" href="{% url 'document_manager' %}">{% trans "Documents" %}<span>{% trans "Manage your files" %}</span></a>
+                <a class="quick-link" href="{% url 'ai_assistant' %}">{% trans "Study assistant" %}<span>{% trans "Ask a planning question" %}</span></a>
+                <a class="quick-link" href="{% url 'life_in_germany' %}">{% trans "Germany guide" %}<span>{% trans "Explore practical topics" %}</span></a>
+              </div>
+            </section>
+            <section class="panel">
+              <div class="panel-heading"><div><h2>{% trans "Important dates" %}</h2><p>{% trans "Dates from your profile" %}</p></div></div>
+              {% if reminders %}
+                <div class="reminder-list">{% for reminder in reminders %}<div class="reminder-row"><span>{{ reminder.name }}</span><strong>{{ reminder.date|date:"M j, Y" }}</strong></div>{% endfor %}</div>
+              {% else %}
+                <div class="empty">{% trans "Add your planned study start date in your profile to keep it visible here. University deadlines are not shown until verified." %}</div>
+              {% endif %}
+            </section>
+            <section class="panel">
+              <div class="panel-heading"><div><h2>{% trans "Your focus" %}</h2><p>{% trans "Saved in your profile" %}</p></div><a class="subtle-link" href="{% url 'profile_settings' %}">{% trans "Edit" %}</a></div>
+              <div class="step-copy"><strong>{{ focus_area }}</strong><span>{{ goal }}</span></div>
+              {% if profile.university_city %}<div class="check-row"><span>{% trans "Preferred city" %}</span><strong>{{ profile.university_city }}</strong></div>{% endif %}
+            </section>
+          </aside>
+        </div>
+        <p class="notice">{% trans "Admission, certificate recognition, and visa requirements depend on your individual situation. Verify important decisions with the relevant university or official authority. Directory entries may be demonstration data." %}</p>
+      </main>
+    </div>
+    <nav class="mobile-nav" aria-label="{% trans 'Mobile navigation' %}">
+      <a href="{% url 'dashboard' %}" aria-current="page">{% trans "Dashboard" %}</a>
+      <a href="{% url 'study_path' %}">{% trans "Roadmap" %}</a>
+      <a href="{% url 'university_search' %}">{% trans "Universities" %}</a>
+      <a href="{% url 'document_manager' %}">{% trans "Documents" %}</a>
+    </nav>
+  </div>
+  <script>
+    const sidebarToggle = document.getElementById("sidebar-toggle");
+    sidebarToggle?.addEventListener("click", () => {
+      const collapsed = document.body.classList.toggle("sidebar-collapsed");
+      sidebarToggle.setAttribute("aria-label", collapsed ? "Expand sidebar" : "Collapse sidebar");
+      sidebarToggle.title = collapsed ? "Expand sidebar" : "Collapse sidebar";
+    });
+  </script>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

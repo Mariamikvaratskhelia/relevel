@@ -1,0 +1,76 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "University Search | ReLevel" %}</title>
+  <style>
+    body { font-family: Inter, Arial, sans-serif; margin: 0; background: #f8fafc; color: #0f172a; }
+    .container { width: min(1100px, calc(100% - 32px)); margin: 48px auto 80px; }
+    .topbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    .panel { background: white; border: 1px solid #e2e8f0; border-radius: 22px; padding: 24px; box-shadow: 0 18px 40px rgba(15,23,42,0.04); }
+    .filters { display: grid; grid-template-columns: repeat(5, minmax(140px, 1fr)); gap: 16px; margin-top: 18px; }
+    .field { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #cbd5e1; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; padding: 12px 18px; text-decoration: none; font-weight: 700; border-radius: 12px; border: 1px solid #cbd5e1; background: white; color: #0f172a; }
+    .btn.primary { background: linear-gradient(135deg, #2563eb, #14b8a6); border: none; color: white; }
+    .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; margin-top: 24px; }
+    .card { background: white; border: 1px solid #e2e8f0; border-radius: 18px; padding: 18px; }
+    h1, h2, h3 { margin-top: 0; }
+    .meta { color: #475569; font-size: 0.85rem; }
+    .badge { display: inline-flex; padding: 6px 10px; border-radius: 999px; background: rgba(37,99,235,.08); color: #1d4ed8; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+    @media (max-width: 760px) { .filters { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="topbar">
+      <h1>{% trans "University finder" %}</h1>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+        <a class="btn primary" href="{% url 'profile_settings' %}">{% trans "Student profile" %}</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>{% trans "Search universities, Studienkollegs, and programs" %}</h2>
+      <form method="get">
+        <div class="filters">
+          {{ form.city }}
+          {{ form.subject }}
+          {{ form.degree }}
+          {{ form.language }}
+          {{ form.institution_type }}
+        </div>
+        <div style="margin-top: 18px; display:flex; gap: 12px; flex-wrap:wrap;">
+          <button class="btn primary" type="submit">{% trans "Apply filters" %}</button>
+          <a class="btn" href="{% url 'university_search' %}">{% trans "Reset" %}</a>
+        </div>
+      </form>
+    </div>
+
+    <div class="results">
+      {% for item in universities %}
+        <article class="card">
+          <div class="badge">{{ item.institution_type }}</div>
+          <h3>{{ item.name }}</h3>
+          <div class="meta">{{ item.city }} · {{ item.subject }} · {{ item.degree }}</div>
+          <p><strong>{% trans "Language:" %}</strong> {{ item.language }}</p>
+          <p><strong>{% trans "Admission:" %}</strong> {{ item.admission_requirements }}</p>
+          <p><strong>{% trans "Deadline:" %}</strong> {{ item.application_deadline }}</p>
+          <p><strong>{% trans "Tuition:" %}</strong> {{ item.tuition_fee }}</p>
+          {% if item.website %}
+            <a class="btn" href="{{ item.website }}" target="_blank" rel="noreferrer">{% trans "Official website" %}</a>
+          {% endif %}
+        </article>
+      {% empty %}
+        <div class="card">
+          <h3>{% trans "No matches yet" %}</h3>
+          <p>{% trans "Try removing one or more filters or use a broader subject or city." %}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

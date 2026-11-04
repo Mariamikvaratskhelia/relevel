@@ -1,0 +1,112 @@
+<!doctype html>
+{% load i18n %}
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% trans "Study Path | ReLevel" %}</title>
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --primary: #2563eb;
+      --secondary: #14b8a6;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #e2e8f0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, #ebf5ff 0%, #f8fafc 100%);
+      color: var(--text);
+    }
+    .container {
+      width: min(1000px, calc(100% - 32px));
+      margin: 60px auto 80px;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 18px 48px rgba(37, 99, 235, 0.18);
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 3vw, 3rem);
+    }
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 32px;
+      grid-template-columns: repeat(3, minmax(220px, 1fr));
+    }
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      text-decoration: none;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      font-weight: 700;
+      background: rgba(255,255,255,0.1);
+    }
+    .btn.light {
+      border-color: var(--line);
+      background: white;
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="nav">
+      <a class="btn light" href="{% url 'dashboard' %}">{% trans "Dashboard" %}</a>
+      <a class="btn light" href="{% url 'profile_settings' %}">{% trans "Profile settings" %}</a>
+    </div>
+
+    <div class="hero">
+      <h1>{% trans "Your ReLevel" %}</h1>
+      <p>{% trans "Focus area:" %} {{ focus_area }}</p>
+      <p>{% trans "Goal:" %} {{ study_goal }}</p>
+    </div>
+
+    <div class="grid">
+      {% for module in modules %}
+        <div class="card">
+          <div class="badge">{{ module.status }}</div>
+          <h3>{{ module.title }}</h3>
+          <p>{{ module.description }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% include "portfolio/includes/language_switcher.html" %}
+</body>
+</html>

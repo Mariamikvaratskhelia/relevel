@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="{{ request.LANGUAGE_CODE }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | ReLevel</title>
+  <style>
+    :root {
+      --bg: #f5f7fc;
+      --panel: #ffffff;
+      --primary: #2563eb;
+      --secondary: #14b8a6;
+      --text: #111827;
+      --muted: #64748b;
+      --line: #e5e7eb;
+      --success: #10b981;
+      --shadow: rgba(37, 99, 235, 0.08);
+    }
+    body.dark {
+      --bg: #0f172a;
+      --panel: #111827;
+      --primary: #7dd3fc;
+      --secondary: #2dd4bf;
+      --text: #e2e8f0;
+      --muted: #cbd5e1;
+      --line: rgba(148, 163, 184, 0.2);
+      --success: #34d399;
+      --shadow: rgba(15, 118, 110, 0.2);
+    }
+    body.midnight {
+      --bg: #020817;
+      --panel: #0f172a;
+      --primary: #8b5cf6;
+      --secondary: #22d3ee;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --line: rgba(148, 163, 184, 0.25);
+      --success: #34d399;
+      --shadow: rgba(76, 29, 149, 0.25);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, var(--bg) 0%, #eef4ff 100%);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    body.dark, body.midnight {
+      background: linear-gradient(180deg, var(--bg) 0%, #0b1220 100%);
+    }
+    .container {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 80px;
+    }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 16px;
+    }
+    .brand { font-weight: 800; letter-spacing: -0.04em; font-size: 1.6rem; }
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 700;
+      background: rgba(255,255,255,0.7);
+    }
+    .btn.primary {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      color: white;
+    }
+    .hero {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 18px 46px var(--shadow);
+      margin-bottom: 24px;
+    }
+    body.dark .hero, body.midnight .hero {
+      background: rgba(15, 23, 42, 0.9);
+    }
+    h1 { margin: 0 0 8px; letter-spacing: -0.06em; font-size: clamp(2.1rem, 3vw, 3rem); }
+    p { color: var(--muted); }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 18px 0 24px;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      background: rgba(37, 99, 235, 0.08);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .stat {
+      background: rgba(248, 250, 252, 0.9);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px;
+    }
+    body.dark .stat, body.midnight .stat {
+      background: rgba(15, 23, 42, 0.8);
+    }
+    .stat strong { display: block; font-size: 1.8rem; letter-spacing: -0.05em; margin-bottom: 6px; }
+    .stat span { color: var(--muted); font-size: 0.9rem; }
+    .badge {
+      display: inline-flex;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(16,185,129,0.12);
+      color: var(--success);
+      font-size: 0.76rem;
+      font-weight: 700;
+      margin-top: 10px;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      margin-top: 26px;
+    }
+    .card {
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 22px;
+      box-shadow: 0 18px 46px var(--shadow);
+    }
+    body.dark .card, body.midnight .card {
+      background: rgba(15, 23, 42, 0.9);
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-size: 1.2rem;
+    }
+    ul {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body class="{{ profile.theme|default:'light' }}">
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">ReLevel</div>
+      <div class="actions">
+        <a class="btn" href="{% url 'home' %}">Home</a>
+        <a class="btn" href="{% url 'study_path' %}">Study plan</a>
+        <a class="btn" href="{% url 'university_search' %}">Universities</a>
+        <a class="btn" href="{% url 'document_manager' %}">Documents</a>
+        <a class="btn" href="{% url 'ai_assistant' %}">AI assistant</a>
+        <a class="btn" href="{% url 'profile_settings' %}">Profile</a>
+        <a class="btn primary" href="{% url 'logout' %}">Logout</a>
+      </div>
+    </div>
+
+    <div class="hero">
+      {% if welcome_message %}
+        <div style="padding: 10px 12px; border-radius: 12px; background: rgba(16,185,129,0.08); color: #0f766e; font-weight: 700; margin-bottom: 18px;">{{ welcome_message }}</div>
+      {% endif %}
+
+      <h1>Welcome back, {{ display_name }}.</h1>
+      <p>{{ profile.bio|default:"Your learning journey is progressing. Keep going and stay consistent." }}</p>
+
+      <div class="meta">
+        <span class="pill">Focus: {{ focus_area }}</span>
+        <span class="pill">Goal: {{ goal }}</span>
+      </div>
+
+      <div class="grid">
+        {% for task in task_cards %}
+          <div class="stat">
+            <strong>{{ task.value }}</strong>
+            <span>{{ task.title }}</span>
+            <div class="badge">{{ task.detail }}</div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>Your next wins</h3>
+        <ul>
+          <li>Complete the next item in your focus area: {{ focus_area }}</li>
+          <li>Review your learning goal: {{ goal }}</li>
+          <li>Keep your momentum with a 30-minute practice sprint today.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Quick settings</h3>
+        <ul>
+          <li>Theme: {{ profile.get_theme_display }}</li>
+          <li>Email alerts: {% if profile.email_notifications %}Enabled{% else %}Disabled{% endif %}</li>
+          <li>Profile updated: {{ profile.updated_at|date:"M d, Y" }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
